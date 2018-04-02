@@ -32,7 +32,6 @@ class Client:
 
 
 client = Client()
-print(client.server.handlers)
 client.hello()
 client.hello()
 client.bye()

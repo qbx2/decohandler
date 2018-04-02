@@ -40,3 +40,11 @@ client.hello()
 client.bye()
 client.bye()
 ```
+## Output
+```
+$ python3 test.py
+['hello', 'hello2']
+['hello', 'hello2']
+['bye']
+['bye']
+```
