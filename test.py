@@ -1,6 +1,3 @@
-# Decorator for Implementing Handlers in Python
-## Super Easy
-```python
 from base_handler import BaseHandler, handles
 
 
@@ -39,4 +36,3 @@ client.hello()
 client.hello()
 client.bye()
 client.bye()
-```
