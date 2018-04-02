@@ -21,17 +21,18 @@ class Client:
 
         self.server = ServerHandler()
 
-    def _request(self, opcode):
+    def request(self, opcode):
         return self.server.handle(opcode)
 
     def hello(self):
-        print(self._request(0x12))
+        print(self.request(0x12))
 
     def bye(self):
-        print(self._request(0x34))
+        print(self.request(0x34))
 
 
 client = Client()
+print(client.server.handlers)
 client.hello()
 client.hello()
 client.bye()
