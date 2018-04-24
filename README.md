@@ -1,4 +1,7 @@
 # Decorator for Implementing Handlers in Python
+## Installation
+`pip install decohandler`
+
 ## Super Easy
 ```python
 from base_handler import BaseHandler, handles
