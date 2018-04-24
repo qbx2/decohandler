@@ -28,9 +28,9 @@ class BaseHandler:
 
         self.handlers = dict(handlers)
 
-    def handle(self, opcode):
+    def handle(self, opcode, *args, **kwargs):
         try:
-            return [handler() for handler in self.handlers[opcode]]
+            return [handler(*args, **kwargs) for handler in self.handlers[opcode]]
         except KeyError:
             raise NotImplementedError(
                 'There is no handler implemented for {}'.format(opcode))
