@@ -1,4 +1,4 @@
-from base_handler import BaseHandler, handles
+from decohandler import BaseHandler, handles
 
 
 class ServerHandler(BaseHandler):
