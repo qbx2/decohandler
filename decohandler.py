@@ -1,3 +1,4 @@
+import logging
 from collections import defaultdict
 
 
@@ -21,16 +22,20 @@ class handles:
 class BaseHandler:
     def __init__(self):
         handlers = defaultdict(list)
+        registered = set()
 
-        for k, v in vars(type(self)).items():
-            if isinstance(v, handles):
-                handlers[v.opcode] += [getattr(self, k)]
+        for cls in type(self).mro():
+            for k, v in vars(cls).items():
+                if k not in registered and isinstance(v, handles):
+                    logging.debug(v)
+                    registered.add(k)
+                    handlers[v.opcode] += [getattr(self, k)]
 
         self.handlers = dict(handlers)
 
     def get_handlers(self, opcode):
         try:
-            self.handlers[opcode]
+            return self.handlers[opcode]
         except KeyError:
             raise NotImplementedError(
                 'There is no handler implemented for {}'.format(opcode))
