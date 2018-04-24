@@ -15,7 +15,7 @@ class handles:
         return self
 
     def __repr__(self):
-        return f'<handles: {self.opcode} is handled by {self.__func__}>'
+        return '<{} handles opcode {}>'.format(self.__func__, self.opcode)
 
 
 class BaseHandler:
@@ -29,4 +29,8 @@ class BaseHandler:
         self.handlers = dict(handlers)
 
     def handle(self, opcode):
-        return [handler() for handler in self.handlers[opcode]]
+        try:
+            return [handler() for handler in self.handlers[opcode]]
+        except KeyError:
+            raise NotImplementedError(
+                'There is no handler implemented for {}'.format(opcode))
