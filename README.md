@@ -1,4 +1,6 @@
-# Decorator for Implementing Handlers in Python
+[![PyPI](https://img.shields.io/pypi/v/decohandler.svg)](https://github.com/qbx2/decohandler)
+
+# DecoHandler
 ## Installation
 `pip install decohandler`
 
