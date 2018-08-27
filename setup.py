@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='DecoHandler',
-    version='1.0.6',
+    version='1.0.7',
     description='A convenient decorator pattern to implement handler in python',
     author='Sunyeop Lee',
     author_email='sunyeop97@gmail.com',
