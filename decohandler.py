@@ -1,6 +1,9 @@
 import logging
 from collections import defaultdict
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.WARNING)
+
 
 # noinspection PyPep8Naming
 class handles:
@@ -27,7 +30,7 @@ class BaseHandler:
         for cls in type(self).mro():
             for k, v in vars(cls).items():
                 if k not in registered and isinstance(v, handles):
-                    logging.debug(v)
+                    logger.debug(v)
                     registered.add(k)
                     handlers[v.opcode] += [getattr(self, k)]
 
