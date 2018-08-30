@@ -24,6 +24,8 @@ class handles:
 
 class BaseHandler:
     def __init__(self):
+        super().__init__()
+
         handlers = defaultdict(list)
         registered = set()
 
